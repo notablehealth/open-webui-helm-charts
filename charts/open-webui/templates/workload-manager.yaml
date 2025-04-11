@@ -235,6 +235,9 @@ spec:
         {{- end }}
         {{- end }}
         tty: true
+      {{- if .Values.sidecarContainers }}
+       {{- toYaml .Values.sidecarContainers | nindent 6 }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
